@@ -6,29 +6,35 @@ const Home = () => {
         <div className="container my-4">
             <h2 className="text-center">TODOs List</h2>
             <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Give a Title" required />
                     <Form.Text className="text-muted">
                         Add an item to the list
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicDescription">
+                <Form.Group className="mb-3 text-start" controlId="formBasicDescription">
                     <Form.Label>Description</Form.Label>
                     <Form.Control
                         as="textarea"
-                        placeholder="Leave a comment here"
+                        placeholder="Write a Description"
                         style={{ height: '100px' }}
-                    />
+                        required />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <Form.Select className='w-50' aria-label="Default select example">
+                    <option>Select States</option>
+                    <option value="todo">TODO</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="done">Done</option>
+                </Form.Select>
+
+                <div className='text-start'>
+                    <Button className='mt-4' variant="success" type="submit">
+                        Add to List
+                    </Button>
+                </div>
             </Form>
 
             <div id="items" className="my-4">
