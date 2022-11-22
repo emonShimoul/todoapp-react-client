@@ -1,22 +1,35 @@
 import React from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 const Home = () => {
     return (
         <div className="container my-4">
             <h2 className="text-center">TODOs List</h2>
-            <div className="form-group text-start">
-                <label for="title">Title</label>
-                <input type="text" className="form-control" id="title" aria-describedby="emailHelp" />
-                <small id="emailHelp" className="form-text text-muted">Add an item to the list</small>
-            </div>
-            <div className="form-group text-start">
-                <label for="description">Description</label>
-                <textarea className="form-control" id="description" rows="3"></textarea>
-            </div>
-            <div className='mt-4'>
-                <button id="add" className="btn btn-success me-4">Add to list</button>
-                <button id="clear" className="btn btn-danger" onclick="clearStorage()">Clear list</button>
-            </div>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                        Add an item to the list
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicDescription">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        placeholder="Leave a comment here"
+                        style={{ height: '100px' }}
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
 
             <div id="items" className="my-4">
                 <h2>Your Items</h2>
