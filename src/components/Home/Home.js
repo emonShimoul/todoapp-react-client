@@ -38,11 +38,10 @@ const Home = () => {
             </Form>
 
             <div id="items" className="my-4">
-                <h2>Your Items</h2>
-                <table className="table">
+                <h3>Your Items</h3>
+                <table className="table mt-4">
                     <thead>
                         <tr>
-                            <th scope="col">SNo</th>
                             <th scope="col">Item Title</th>
                             <th scope="col">Item Description</th>
                             <th scope="col">Action</th>
@@ -50,7 +49,6 @@ const Home = () => {
                     </thead>
                     <tbody id="tableBody">
                         <tr>
-                            <th scope="row">1</th>
                             <td>Get Some Coffee</td>
                             <td>You need coffee as u r a coder</td>
                             <td><button className="btn btn-sm btn-primary">Delete</button></td>
