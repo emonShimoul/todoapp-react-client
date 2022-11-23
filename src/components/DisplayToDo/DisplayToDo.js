@@ -19,7 +19,7 @@ const DisplayToDo = ({ td }) => {
             state: stateData,
             id: _id
         }
-        console.log(finalData);
+        // console.log(finalData);
         fetch(`http://localhost:5000/todoInfo`, {
             method: 'PUT',
             headers: {
@@ -28,7 +28,20 @@ const DisplayToDo = ({ td }) => {
             body: JSON.stringify(finalData)
         })
         alert("State Changed!!");
-        // document.location.reload();
+        document.location.reload();
+    }
+
+    const handleDelete = (_id) => {
+        console.log(_id);
+        fetch(`http://localhost:5000/todoInfo`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(_id)
+        })
+        alert("Deleted!!");
+        document.location.reload();
     }
 
     return (
@@ -51,7 +64,7 @@ const DisplayToDo = ({ td }) => {
                     </Form.Select>
                     <button onClick={() => handleChangeStatus({ _id })} className="btn btn-sm btn-warning ms-2 py-2" type='submit'>Change</button>
                 </td>
-                <td><button className="btn btn-sm btn-danger ms-2" type='submit'>Delete</button></td>
+                <td><button onClick={() => handleDelete({ _id })} className="btn btn-sm btn-danger ms-2" type='submit'>Delete</button></td>
             </tr>
         </tbody>
     );
