@@ -1,12 +1,12 @@
 import React, { createContext } from 'react';
-// import useFirebase from '../../hooks/useFirebase';
+import useFetch from '../../hooks/useFetch';
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-    // const allContexts = useFirebase();
+    const allContexts = useFetch();
     return (
-        <AuthContext.Provider /* value={allContexts} */>
+        <AuthContext.Provider value={allContexts}>
             {children}
         </AuthContext.Provider>
     );

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const Home = () => {
     const [todoInfo, setTodoInfo] = useState({});
+
+    const { todoData } = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -12,7 +15,8 @@ const Home = () => {
         setTodoInfo(newTodoInfo);
     }
 
-    const handleAddToList = e => {
+    const handleAddToList = (e) => {
+        todoData(todoInfo);
         e.preventDefault();
     }
 
