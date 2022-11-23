@@ -6,9 +6,9 @@ const Home = () => {
         <div className="container my-4">
             <h2 className="text-center">TODOs List</h2>
             <Form>
-                <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
+                <Form.Group className="mb-3 text-start" controlId="formBasicTitle">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control type="email" placeholder="Give a Title" required />
+                    <Form.Control type="text" placeholder="Give a Title" required />
                     <Form.Text className="text-muted">
                         Add an item to the list
                     </Form.Text>
@@ -36,35 +36,6 @@ const Home = () => {
                     </Button>
                 </div>
             </Form>
-
-            <div id="items" className="my-4">
-                <h3>Your Items</h3>
-                <table className="table mt-4 text-start">
-                    <thead>
-                        <tr>
-                            <th scope="col">Item Title</th>
-                            <th scope="col">Item Description</th>
-                            <th scope="col">States</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                        <tr>
-                            <td>Get Some Coffee</td>
-                            <td>You need coffee as u r a coder</td>
-                            <td>
-                                <Form.Select className='w-50' aria-label="Default select example">
-                                    <option>Change</option>
-                                    <option value="todo">TODO</option>
-                                    <option value="inprogress">In Progress</option>
-                                    <option value="done">Done</option>
-                                </Form.Select>
-                            </td>
-                            <td><button className="btn btn-sm btn-danger ms-2">Delete</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     );
 };
