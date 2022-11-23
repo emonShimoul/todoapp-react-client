@@ -13,7 +13,12 @@ const useFetch = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 setTodo(data);
+                if (todo.insertedId) {
+                    alert("Task added to List!!");
+                    document.getElementById("todo-info").reset();
+                }
             })
     }
 

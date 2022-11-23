@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 const Home = () => {
     const [todoInfo, setTodoInfo] = useState({});
 
-    const { todoData } = useAuth();
+    const { todo, todoData } = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -18,13 +18,14 @@ const Home = () => {
     const handleAddToList = (e) => {
         todoData(todoInfo);
         e.preventDefault();
+        // console.log(todo);
     }
 
-    console.log(todoInfo);
+    // console.log(todoInfo);
     return (
         <div className="container my-4">
             <h2 className="text-center">TODOs List</h2>
-            <Form onSubmit={handleAddToList}>
+            <Form onSubmit={handleAddToList} id="todo-info">
                 <Form.Group className="mb-3 text-start" controlId="formBasicTitle">
                     <Form.Label>Title</Form.Label>
                     <Form.Control
