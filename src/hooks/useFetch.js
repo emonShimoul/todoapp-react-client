@@ -3,7 +3,7 @@ import { useState } from "react"
 const useFetch = () => {
     const [todo, setTodo] = useState({});
 
-    const todoData = (todoInfo) => {
+    const saveTodoData = (todoInfo) => {
         fetch('http://localhost:5000/todoInfo', {
             method: 'POST',
             headers: {
@@ -15,7 +15,7 @@ const useFetch = () => {
             .then(data => {
                 console.log(data);
                 setTodo(data);
-                if (todo.insertedId) {
+                if (data.insertedId) {
                     alert("Task added to List!!");
                     document.getElementById("todo-info").reset();
                 }
@@ -24,7 +24,7 @@ const useFetch = () => {
 
     return {
         todo,
-        todoData
+        saveTodoData
     }
 }
 

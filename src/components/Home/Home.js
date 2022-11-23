@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 const Home = () => {
     const [todoInfo, setTodoInfo] = useState({});
 
-    const { todo, todoData } = useAuth();
+    const { saveTodoData } = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -16,7 +16,7 @@ const Home = () => {
     }
 
     const handleAddToList = (e) => {
-        todoData(todoInfo);
+        saveTodoData(todoInfo);
         e.preventDefault();
         // console.log(todo);
     }
