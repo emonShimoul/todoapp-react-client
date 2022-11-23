@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const useFetch = () => {
-    const [todo, setTodo] = useState({});
+    const [todo, setTodo] = useState([]);
 
     const saveTodoData = (todoInfo) => {
         fetch('http://localhost:5000/todoInfo', {
@@ -14,13 +14,17 @@ const useFetch = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setTodo(data);
                 if (data.insertedId) {
-                    alert("Task added to List!!");
                     document.getElementById("todo-info").reset();
                 }
             })
     }
+
+    useEffect(() => {
+        fetch('http://localhost:5000/todoInfo')
+            .then(res => res.json())
+            .then(data => setTodo(data))
+    }, []);
 
     return {
         todo,

@@ -18,6 +18,7 @@ const Home = () => {
     const handleAddToList = (e) => {
         saveTodoData(todoInfo);
         e.preventDefault();
+        document.location.reload();
         // console.log(todo);
     }
 
