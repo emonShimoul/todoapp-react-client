@@ -19,16 +19,23 @@ const DisplayToDo = ({ td }) => {
             state: stateData,
             id: _id
         }
-        // console.log(finalData);
-        fetch(`http://localhost:5000/todoInfo`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(finalData)
-        })
-        alert("State Changed!!");
-        document.location.reload();
+        console.log(finalData.state);
+        if (finalData.state === 'todo' || finalData.state === 'inprogress' || finalData.state === 'done') {
+            console.log(finalData);
+            fetch(`http://localhost:5000/todoInfo`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(finalData)
+            })
+            alert("State Changed!!");
+            document.location.reload();
+        }
+
+        else {
+            alert("Please Select a State!!")
+        }
     }
 
     const handleDelete = (_id) => {
