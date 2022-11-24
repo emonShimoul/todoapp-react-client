@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const DisplayToDo = ({ td }) => {
     // console.log(td);
+    const { deleteTodoData } = useAuth();
+
     const { _id, title, desc, state } = td;
     const [stateData, setStateData] = useState({});
     // console.log(state);
@@ -39,16 +42,8 @@ const DisplayToDo = ({ td }) => {
     }
 
     const handleDelete = (_id) => {
-        console.log(_id);
-        fetch(`http://localhost:5000/todoInfo`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(_id)
-        })
-        alert("Deleted!!");
-        document.location.reload();
+        // console.log(_id);
+        deleteTodoData(_id);
     }
 
     return (
