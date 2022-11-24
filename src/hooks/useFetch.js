@@ -30,8 +30,13 @@ const useFetch = () => {
             },
             body: JSON.stringify(_id)
         })
-        alert("Deleted!!");
-        document.location.reload();
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    alert("Deleted!!");
+                    document.location.reload();
+                }
+            })
     }
 
     // change the task status in the database
