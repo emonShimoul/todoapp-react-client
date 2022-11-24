@@ -4,7 +4,7 @@ import useAuth from '../../hooks/useAuth';
 
 const DisplayToDo = ({ td }) => {
     // console.log(td);
-    const { deleteTodoData } = useAuth();
+    const { deleteTodoData, changeStatus } = useAuth();
 
     const { _id, title, desc, state } = td;
     const [stateData, setStateData] = useState({});
@@ -24,14 +24,8 @@ const DisplayToDo = ({ td }) => {
         }
         console.log(finalData.state);
         if (finalData.state === 'todo' || finalData.state === 'inprogress' || finalData.state === 'done') {
-            console.log(finalData);
-            fetch(`http://localhost:5000/todoInfo`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(finalData)
-            })
+            // console.log(finalData);
+            changeStatus(finalData);
             alert("State Changed!!");
             document.location.reload();
         }

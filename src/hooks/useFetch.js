@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 const useFetch = () => {
     const [todo, setTodo] = useState([]);
 
+    // add data to the database
     const saveTodoData = (todoInfo) => {
         fetch('http://localhost:5000/todoInfo', {
             method: 'POST',
@@ -20,6 +21,7 @@ const useFetch = () => {
             })
     }
 
+    // delete data from the database
     const deleteTodoData = (_id) => {
         fetch(`http://localhost:5000/todoInfo`, {
             method: 'DELETE',
@@ -32,6 +34,18 @@ const useFetch = () => {
         document.location.reload();
     }
 
+    // change the task status in the database
+    const changeStatus = (finalData) => {
+        fetch(`http://localhost:5000/todoInfo`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(finalData)
+        })
+    }
+
+    // load data from the database
     useEffect(() => {
         fetch('http://localhost:5000/todoInfo')
             .then(res => res.json())
@@ -41,7 +55,8 @@ const useFetch = () => {
     return {
         todo,
         saveTodoData,
-        deleteTodoData
+        deleteTodoData,
+        changeStatus
     }
 }
 
